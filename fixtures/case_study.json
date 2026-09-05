@@ -1,0 +1,39 @@
+{
+  "schema_note": "Synthetic event collection. Every event is fabricated for an offline case study; none of this is captured LogRhythm data, an exported rule, or vendor output.",
+  "scenario": {
+    "title": "Repeated auth failures against one domain account from one source host",
+    "description": "Synthetic timeline on 2026-09-03. svc.reporting receives 8 auth_failure events from 10.24.8.7 inside 4 minutes and 7 seconds (window 300s, threshold 5). A second identity, c.meyer, receives 6 auth_failure events from the same source host shortly after, proving windows group by identity and source independently. Three spread-out auth_failure events for svc.reporting from 198.51.100.23 never reach threshold inside one window. One auth_success for svc.reporting appears after the burst for investigation context; success events never count toward failure thresholds here. Two malformed events exercise the validation path.",
+    "window_seconds": 300,
+    "threshold": 5,
+    "as_of": "2026-09-03T00:00:00Z",
+    "synthetic": true,
+    "field_notes": {
+      "identity": "Account that failed to authenticate (origin user in LogRhythm terms).",
+      "source": "Host or address the failed attempt came from (origin host in LogRhythm terms).",
+      "timestamp": "ISO 8601 UTC required by the validator.",
+      "event_type": "auth_failure or auth_success only."
+    }
+  },
+  "events": [
+    {"event_id": "lr-0001", "timestamp": "2026-09-03T14:03:12Z", "event_type": "auth_failure", "identity": "svc.reporting", "source": "10.24.8.7"},
+    {"event_id": "lr-0002", "timestamp": "2026-09-03T14:03:47Z", "event_type": "auth_failure", "identity": "svc.reporting", "source": "10.24.8.7"},
+    {"event_id": "lr-0003", "timestamp": "2026-09-03T14:04:05Z", "event_type": "auth_failure", "identity": "svc.reporting", "source": "10.24.8.7"},
+    {"event_id": "lr-0004", "timestamp": "2026-09-03T14:04:58Z", "event_type": "auth_failure", "identity": "svc.reporting", "source": "10.24.8.7"},
+    {"event_id": "lr-0005", "timestamp": "2026-09-03T14:05:31Z", "event_type": "auth_failure", "identity": "svc.reporting", "source": "10.24.8.7"},
+    {"event_id": "lr-0006", "timestamp": "2026-09-03T14:06:02Z", "event_type": "auth_failure", "identity": "svc.reporting", "source": "10.24.8.7"},
+    {"event_id": "lr-0007", "timestamp": "2026-09-03T14:06:44Z", "event_type": "auth_failure", "identity": "svc.reporting", "source": "10.24.8.7"},
+    {"event_id": "lr-0008", "timestamp": "2026-09-03T14:07:19Z", "event_type": "auth_failure", "identity": "svc.reporting", "source": "10.24.8.7"},
+    {"event_id": "lr-0009", "timestamp": "2026-09-03T14:09:02Z", "event_type": "auth_success", "identity": "svc.reporting", "source": "10.24.8.7"},
+    {"event_id": "lr-0010", "timestamp": "2026-09-03T14:10:03Z", "event_type": "auth_failure", "identity": "c.meyer", "source": "10.24.8.7"},
+    {"event_id": "lr-0011", "timestamp": "2026-09-03T14:10:41Z", "event_type": "auth_failure", "identity": "c.meyer", "source": "10.24.8.7"},
+    {"event_id": "lr-0012", "timestamp": "2026-09-03T14:11:22Z", "event_type": "auth_failure", "identity": "c.meyer", "source": "10.24.8.7"},
+    {"event_id": "lr-0013", "timestamp": "2026-09-03T14:11:58Z", "event_type": "auth_failure", "identity": "c.meyer", "source": "10.24.8.7"},
+    {"event_id": "lr-0014", "timestamp": "2026-09-03T14:12:27Z", "event_type": "auth_failure", "identity": "c.meyer", "source": "10.24.8.7"},
+    {"event_id": "lr-0015", "timestamp": "2026-09-03T14:12:51Z", "event_type": "auth_failure", "identity": "c.meyer", "source": "10.24.8.7"},
+    {"event_id": "lr-0016", "timestamp": "2026-09-03T14:20:00Z", "event_type": "auth_failure", "identity": "svc.reporting", "source": "198.51.100.23"},
+    {"event_id": "lr-0017", "timestamp": "2026-09-03T14:27:00Z", "event_type": "auth_failure", "identity": "svc.reporting", "source": "198.51.100.23"},
+    {"event_id": "lr-0018", "timestamp": "2026-09-03T14:35:00Z", "event_type": "auth_failure", "identity": "svc.reporting", "source": "198.51.100.23"},
+    {"event_id": "lr-0019", "timestamp": "2026-09-03T14:40:00Z", "event_type": "auth_failure", "source": "10.24.8.7"},
+    {"event_id": "lr-0020", "timestamp": "2026-09-03T14:41:00Z", "event_type": "auth_unknown", "identity": "svc.reporting", "source": "10.24.8.7"}
+  ]
+}

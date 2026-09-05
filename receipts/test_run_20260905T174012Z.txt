@@ -1,0 +1,35 @@
+LogRhythm detection proof test receipt
+Date (UTC): 20260905T174012Z
+Python: Python 3.9.6
+Host: Darwin arm64
+Command: python3 -m unittest discover -s tests -t . -v
+------------------------------------------------------------------
+test_case_study_produces_exactly_two_detections (tests.test_detector.CaseStudyFixtureTests) ... ok
+test_case_study_summary_counts (tests.test_detector.CaseStudyFixtureTests) ... ok
+test_detection_one_svc_reporting_from_internal_source (tests.test_detector.CaseStudyFixtureTests) ... ok
+test_detection_two_c_meyer_grouped_separately (tests.test_detector.CaseStudyFixtureTests) ... ok
+test_fixture_is_labeled_synthetic (tests.test_detector.CaseStudyFixtureTests) ... ok
+test_malformed_events_recorded_with_reasons (tests.test_detector.CaseStudyFixtureTests) ... ok
+test_spread_out_failures_do_not_fire (tests.test_detector.CaseStudyFixtureTests) ... ok
+test_invalid_configuration_raises_value_error (tests.test_detector.ConfigurationTests) ... ok
+test_grouping_by_identity_and_source_separates_keys (tests.test_detector.GroupingTests) ... ok
+test_interleaved_keys_independent_windows (tests.test_detector.GroupingTests) ... ok
+test_empty_stream (tests.test_detector.MalformedEventTests) ... ok
+test_malformed_events_do_not_block_valid_events (tests.test_detector.MalformedEventTests) ... ok
+test_missing_required_fields_each_reason (tests.test_detector.MalformedEventTests) ... ok
+test_non_dict_event_rejected (tests.test_detector.MalformedEventTests) ... ok
+test_type_and_value_variants_routed (tests.test_detector.MalformedEventTests) ... ok
+test_auth_success_never_counts_toward_threshold (tests.test_detector.OrderingTests) ... ok
+test_duplicate_timestamps_stable_by_input_order (tests.test_detector.OrderingTests) ... ok
+test_unsorted_input_deterministic_output (tests.test_detector.OrderingTests) ... ok
+test_below_threshold_no_detection (tests.test_detector.WindowBoundaryTests) ... ok
+test_detection_fields_shape (tests.test_detector.WindowBoundaryTests) ... ok
+test_event_past_window_boundary_starts_new_burst (tests.test_detector.WindowBoundaryTests) ... ok
+test_fires_exactly_at_threshold (tests.test_detector.WindowBoundaryTests) ... ok
+test_two_separate_bursts_same_key_two_detections (tests.test_detector.WindowBoundaryTests) ... ok
+test_window_boundary_inclusive_at_exact_limit (tests.test_detector.WindowBoundaryTests) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 0.003s
+
+OK
